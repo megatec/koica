@@ -1,5 +1,6 @@
 <?php
-require 'coneccion.php';
+require_once 'coneccion.php';
+require_once 'config.php';
 
 //declaracion funcion de creacion de Modelos
 function CrearModelos($bdd){

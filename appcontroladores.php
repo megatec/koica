@@ -1,6 +1,6 @@
 <?php
-require 'coneccion.php';
-require 'config.php';
+require_once 'coneccion.php';
+require_once 'config.php';
 
 function CrearControladores($bdd,$folder){
     $bandera=0;
@@ -19,8 +19,8 @@ function CrearControladores($bdd,$folder){
         $fp = fopen("controladores/".str_replace("_", "", $tabla[0]).".php", 'w');
         chmod("controladores/".str_replace("_", "", $tabla[0]).".php",0777);
      fputs($fp,  "<?php\n     
-require \$_SERVER[\"DOCUMENT_ROOT\"].\"/$folder/modelos/".str_replace("_", "", $tabla[0]).".php\";
-
+require_once \$_SERVER[\"DOCUMENT_ROOT\"].\"/$folder/modelos/".str_replace("_", "", $tabla[0]).".php\";
+require_once \$_SERVER[\"DOCUMENT_ROOT\"].\"/$folder/coneccion.php\";
 class  C".ucfirst(str_replace("_", "", $tabla[0]))." extends ".str_replace("_", "", $tabla[0])."{     
     public function guardar(\$objeto){
         \$con=new coneccion();  
